@@ -31,9 +31,9 @@ Or install it yourself as:
 Using this Gem is VERY simply, everything apart from the webhook and the message are optional.
 
 ```ruby
-  s = Slackit.new(options[:webhook], options[:channel], options[:username], options[:emoji])
+  s = Slackit.new(webhook, channel, username, emoji)
 
-  s.send(options[:message])
+  s.send(message)
 ```
 
 ### Command Line Usage
