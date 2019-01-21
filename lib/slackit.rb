@@ -1,7 +1,10 @@
-require "slackit/version"
+require 'slackit/version'
 
+#
+# To follow
+#
 class Slackit
-    def initialize(webhook_url, channel = false, username = "SlackIT", icon_emoji = ":wolf:")
+    def initialize(webhook_url, channel = false, username = 'SlackIT', icon_emoji = ':wolf:')
         @webhook_url = webhook_url
         @channel = channel
         @username = username
@@ -15,18 +18,18 @@ class Slackit
         headers = { 'Content-Type' => 'application/json' }
 
         # payload
-        body = { "text": text, "icon_emoji": @icon_emoji, username: @username}
+        body = { 'text': text, 'icon_emoji': @icon_emoji, username: @username }
 
-        # add the channel if there is one
-        # otherwise the default channel from the slack integration will be used 
-        body["channel"] = @channel if @channel
+        # add the channel if there is one otherwise the default channel
+        body['channel'] = @channel if @channel
 
-        # rescue from request errors
         begin
-            # make request
-            r = HTTParty.post(@webhook_url, body: body.to_json, headers: headers )
-            return (r.code == 200)
-        rescue
+            response = HTTParty.post(@webhook_url, body: body.to_json, headers: headers)
+
+            return true if response.code == 200
+
+            return false
+        rescue HTTParty::Error, SocketError => _e
             return false
         end
     end
