@@ -1,4 +1,5 @@
 require 'slackit/version'
+require 'httparty'
 
 #
 # To follow
