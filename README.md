@@ -28,7 +28,25 @@ Or install it yourself as:
 
 ## Usage
 
-To come
+Using this Gem is VERY simply, everything apart from the webhook and the message are optional.
+
+```ruby
+  s = Slackit.new(options[:webhook], options[:channel], options[:username], options[:emoji])
+
+  s.send(options[:message])
+```
+
+### Command Line Usage
+
+```
+Usage: slackit
+    -h, --help                       Display this screen
+    -c, --channel string             The channel to send the message to
+    -e, --emoji string               The emoji to use [default: :wolf:]
+    -m, --message string             The message to send
+    -w, --webhook string             The slack incoming webhook to use
+    -u, --username string            The username to send as [default: slackit]
+```
 
 ## Development
 
