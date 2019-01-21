@@ -1,0 +1,33 @@
+sudo: required
+matrix:
+  include:
+  - language: ruby
+    rvm: 2.2
+    before_install:
+      - gem install bundler -v 1.16.1
+  - language: ruby
+    rvm: 2.4.4
+    before_install:
+      - gem install bundler -v 1.17.3
+  - language: ruby
+    env: SKIP_INTERPRETER=true
+    rvm: 2.4.4
+    before_install:
+      - git clone https://github.com/TravisToolbox/rubocop-travis.git
+    install:
+      - ./rubocop-travis/install.sh
+    script:
+      - ./rubocop-travis/scan.sh
+  - language: ruby
+    rvm: 2.2
+    before_install:
+      - mkdir travis
+      - git clone https://github.com/TravisToolbox/awesomebot-travis.git travis/awesomebot
+    install:
+      - ./travis/awesomebot/install.sh
+    script:
+      - ./travis/awesomebot/scan.sh
+notifications:
+  email: false
+  slack:
+    secure: fteRmCizwdBUF2X57Kp5TOxWXx6iOM1eRNEuTNgJgOvT+YMc6QPE3XjppGtaS/OHG7q+UCYhZP6P3C7aJRJO+oxHZMw/725LKabhy6pCBwcAnkxMV/CAnhhhI1jHzR5Iqk5IvctM9VZSfHXmCnM5VrobICMt4y8/fYkY47e4PZpTzorVO2oLNkR0Da0KrrYqeL0prlu4e9UGC8nU0jy8Nwvaap6OZPJUsYninQzhOgg008mFGTKBK852GHTSW99PLeyJahM00T8xx3ENpK2UpNmynE/r6OffsAmT90TeTsINItVoWn/g6h9lUd5co0OAt5uQ2zYWSFJRsL0HlLlJTk4RwJZ2ESClPoXKwqhBqr+LtRfQCQOnMFJ+V9Nx8ojOaS84QZREPQUlDFvqdBeSomWpeIDmmNeT2+SkyCrrDz4NsIYHI/hwPujIHt0547tIYqNTrsdelkZuWPtjPN+ZPCa+UhKFtvTCyTdqh96VuAjwNj2oM0CjI1CT5G8AnmkyYoqoVB5AfZ+ttfLqOwxmb78skAFpyiQx6i/j1wta4P0H/I+Ycr5Kk1RFOR2KmU8AdzMBUKda2gSJFkU5XIdAyd52ZDCC46olEL9Nw8WnsArFQJIPqlX/aJiXJ/W+0RNmcXdKThIFo9GOnj9ewR15/CWWAI6ofqmWlEJ/9lfGnmg=
