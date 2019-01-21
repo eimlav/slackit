@@ -1,3 +1,11 @@
+[![Build Status](https://img.shields.io/travis/AntiPhotonltd/slackit/master.svg)](https://travis-ci.org/AntiPhotonltd/slackit)
+[![Software License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.md)
+[![Release](https://img.shields.io/github/release/AntiPhotonltd/slackit.svg)](https://github.com/AntiPhotonltd/slackit/releases/latest)
+[![Gem Version](https://badge.fury.io/rb/slackit.svg)](https://badge.fury.io/rb/slackit)
+[![Github commits (since latest release)](https://img.shields.io/github/commits-since/AntiPhotonltd/slackit/latest.svg)](https://github.com/AntiPhotonltd/slackit/commits)
+[![GitHub repo size in bytes](https://img.shields.io/github/repo-size/AntiPhotonltd/slackit.svg)](https://github.com/AntiPhotonltd/slackit)
+[![GitHub contributors](https://img.shields.io/github/contributors/AntiPhotonltd/slackit.svg)](https://github.com/AntiPhotonltd/slackit)
+
 # Slackit
 
 Slackit is a very simply Ruby Gem for posting to a slack incoming webhook.
