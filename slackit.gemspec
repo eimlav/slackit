@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["wolf@tgwolf.com"]
 
   spec.summary       = %q{A simple gem for posting to a slack incoming webhook.}
-  spec.description   = %q{A simple gem for posting to a slack incoming webhook.}
+  spec.description   = %q{A simple gem for posting raw messages to a slack incoming webhook.}
   spec.homepage      = "https://github.com/AntiPhotonltd/slackit"
   spec.license       = "MIT"
 
