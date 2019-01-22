@@ -1,3 +1,9 @@
+## 1.1.1 (January 22, 2019)
+
+BUG FIX:
+
+* Hash style did not work on early versions of Ruby (< 2.2). ([@TGWolf][])
+
 ## 1.1.0 (January 22, 2019)
 
 IMPROVEMENTS:
