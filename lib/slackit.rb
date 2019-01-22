@@ -11,9 +11,7 @@ class Slackit
         @channel      = options[:channel]
         @icon_emoji   = options[:icon_emoji]
 
-        if @webhook_url.nil?
-            raise ArgumentError, "Webhook URL required"
-        end
+        raise ArgumentError.new('Webhook URL required') if @webhook_url.nil?
     end
 
     # sends a notification
@@ -26,11 +24,7 @@ class Slackit
         body = { 'text': text, 'icon_emoji': @icon_emoji, username: @username }
 
         # add the channel if there is one otherwise the default channel
-        body['channel'] = if @channel
-                              @channel
-                          else
-                              '#general'
-                          end
+        body['channel'] = @channel || '#general'
 
         begin
             response = HTTParty.post(@webhook_url, body: body.to_json, headers: headers)
