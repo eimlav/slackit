@@ -56,6 +56,8 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Testing
 
+For local testing make sure that you run `bundle exec rspec spec` and then `rake install` to install the gem locally.
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/AntiPhotonltd/slackit. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
