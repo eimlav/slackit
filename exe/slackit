@@ -10,9 +10,13 @@ require 'slackit'
 # -------------------------------------------------------------------------------- #
 
 def send_message_to_slack(options)
-    s = Slackit.new(webhook_url: options[:webhook_url], channel: options[:channel], username: options[:username], icon_emoji: options[:icon_emoji])
-
-    s.send(options[:message])
+    begin
+        s = Slackit.new(webhook_url: options[:webhook_url], channel: options[:channel], username: options[:username], icon_emoji: options[:icon_emoji])
+        s.send(options[:message])
+    rescue ArgumentError
+        puts "You must specify a webhook_url"
+        exit(1)
+    end
 end
 
 # -------------------------------------------------------------------------------- #
