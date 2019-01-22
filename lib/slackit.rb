@@ -5,11 +5,15 @@ require 'httparty'
 # To follow
 #
 class Slackit
-    def initialize(webhook_url, channel = false, username = 'SlackIT', icon_emoji = ':wolf:')
-        @webhook_url = webhook_url
-        @channel = channel
-        @username = username
-        @icon_emoji = icon_emoji
+    def initialize(options = {})
+        @webhook_url  = options[:webhook_url]
+        @username     = options[:username]
+        @channel      = options[:channel]
+        @icon_emoji   = options[:icon_emoji]
+
+        if @webhook_url.nil?
+            raise ArgumentError, "Webhook URL required"
+        end
     end
 
     # sends a notification
@@ -22,7 +26,11 @@ class Slackit
         body = { 'text': text, 'icon_emoji': @icon_emoji, username: @username }
 
         # add the channel if there is one otherwise the default channel
-        body['channel'] = @channel if @channel
+        body['channel'] = if @channel
+                              @channel
+                          else
+                              '#general'
+                          end
 
         begin
             response = HTTParty.post(@webhook_url, body: body.to_json, headers: headers)

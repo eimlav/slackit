@@ -10,7 +10,7 @@ require 'slackit'
 # -------------------------------------------------------------------------------- #
 
 def send_message_to_slack(options)
-    s = Slackit.new(options[:webhook], options[:channel], options[:username], options[:emoji])
+    s = Slackit.new(webhook_url: options[:webhook_url], channel: options[:channel], username: options[:username], icon_emoji: options[:icon_emoji])
 
     s.send(options[:message])
 end
@@ -27,7 +27,7 @@ end
 def process_arguments
     options = {}
     # Enforce the presence of
-    mandatory = %I[webhook message]
+    mandatory = %I[webhook_url message]
 
     optparse = OptionParser.new do |opts|
         opts.banner = "Usage: #{$PROGRAM_NAME}"
@@ -40,16 +40,16 @@ def process_arguments
             options[:channel] = channel
         end
 
-        opts.on('-e', '--emoji string', 'The emoji to use [default: :wolf:]') do |emoji|
-            options[:emoji] = emoji
+        opts.on('-i', '--icon-emoji string', 'The emoji to use for the channel icon [default: :wolf:]') do |icon_emoji|
+            options[:icon_emoji] = icon_emoji
         end
 
         opts.on('-m', '--message string', 'The message to send') do |message|
             options[:message] = message
         end
 
-        opts.on('-w', '--webhook string', 'The slack incoming webhook to use') do |webhook|
-            options[:webhook] = webhook
+        opts.on('-w', '--webhook-url string', 'The slack incoming webhook url to use') do |webhook_url|
+            options[:webhook_url] = webhook_url
         end
 
         opts.on('-u', '--username string', 'The username to send as [default: slackit]') do |username|
