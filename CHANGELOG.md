@@ -1,3 +1,9 @@
+## 1.1.2 (January 31, 2019)
+
+IMPROVEMENTS:
+
+* Add the ability to pipe directly into the app instead of using -m. ([@eimlav][])
+
 ## 1.1.1 (January 22, 2019)
 
 BUG FIX:
@@ -24,3 +30,4 @@ BUG FIX:
 * Initial Release ([@TGWolf][])
 
 [@TGWolf]: https://github.com/TGWolf
+[@eimlav]: https://github.com/eimlav
