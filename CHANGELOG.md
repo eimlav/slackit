@@ -4,8 +4,6 @@ IMPROVEMENTS:
 
 * Add support for sending a message using newline characters and updated the pipe functionality to also support passing in multiline files. ([@eimlav][])
 
-the ability to pipe directly into the app instead of using -m. 
-
 ## 1.1.2 (January 31, 2019)
 
 IMPROVEMENTS:
