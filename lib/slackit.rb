@@ -21,6 +21,7 @@ class Slackit
         headers = { 'Content-Type' => 'application/json' }
 
         # payload
+        text = text.gsub('\\n', "\n") # ensure newlines are not escaped
         body = { 'text' => text, 'icon_emoji' => @icon_emoji, 'username' => @username }
 
         # add the channel if there is one otherwise the default channel
