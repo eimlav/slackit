@@ -63,7 +63,7 @@ def process_arguments
 
     begin
         optparse.parse!
-        options[:message] = gets.downcase if !STDIN.tty? # override message parameter if data is piped in
+        options[:message] = ARGF.read if !STDIN.tty? # override message parameter if data is piped in
         missing = mandatory.select { |param| options[param].nil? }
         raise OptionParser::MissingArgument.new(missing.join(', ')) unless missing.empty?
     rescue OptionParser::InvalidOption, OptionParser::MissingArgument => e
